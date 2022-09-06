@@ -1,0 +1,23 @@
+::ng-deep .p-sidebar {
+    background-color: black;
+    width: 10em!important;    
+}
+::ng-deep .p-sidebar-header {
+    background-image: url(../../../../assets/img/logo.svg);
+    align-items: center;    
+    background-size: cover;
+    width: 3em;
+    filter: invert(100%);
+}
+::ng-deep .p-sidebar .p-sidebar-header {
+    padding: 5rem;
+}
+.p-button-outlined {
+    color: white;
+    padding-top: 0.7rem;
+    align-items: center;
+    border: none;    
+}
+.pi {
+    padding: 0.2rem;
+}

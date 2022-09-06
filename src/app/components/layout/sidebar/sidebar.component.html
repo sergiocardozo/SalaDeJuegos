@@ -1,0 +1,24 @@
+<p-sidebar [visible]="true" [showCloseIcon]="false" [modal]="false">
+
+    <p-divider type="dotted"></p-divider>
+    <button pButton type="button" label="Home" class="p-button-outlined" [routerLink]="['/home']">
+        <span class="pi pi-home"></span>
+    </button>
+
+    <button pButton type="button" label="About" class="p-button-outlined" [routerLink]="['/about']">
+        <span class="pi pi-user"></span>
+    </button>
+
+    <p-divider type="dotted"></p-divider>
+    <button pButton type="button" label="LogIn" class="p-button-outlined" [routerLink]="['/login']">
+        <span class="pi pi-sign-in"></span>
+    </button>
+
+    <button pButton type="button" label="SignUp" class="p-button-outlined" [routerLink]="['/signup']">
+        <span class="pi pi-sign-out"></span>
+    </button>
+
+</p-sidebar>
+
+
+<app-body></app-body>
