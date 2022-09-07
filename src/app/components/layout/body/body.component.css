@@ -1,0 +1,10 @@
+
+.contenedor {
+    height: calc(100vh - 20px);
+    margin: 2px;
+    margin-left: 10rem;
+    border-radius: 10px;
+    box-shadow: 2px 4px 5px 1px rgba(0,0,0,0.75);
+    background-color: #E5E0DE;
+}
+

@@ -1,6 +1,7 @@
 ::ng-deep .p-sidebar {
     background-color: black;
     width: 10em!important;    
+    position: static;
 }
 ::ng-deep .p-sidebar-header {
     background-image: url(../../../../assets/img/logo.svg);
