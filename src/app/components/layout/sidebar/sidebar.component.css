@@ -22,3 +22,7 @@
 .pi {
     padding: 0.2rem;
 }
+::ng-deep .p-sidebar-content { 
+    display: flex;
+    flex-direction: column;
+}
