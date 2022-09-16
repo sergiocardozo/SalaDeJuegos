@@ -252,3 +252,7 @@ h1 {
   transform: translate(5px, -50%);
   opacity: 1;
 }
+
+::ng-deep .p-button { 
+  float: inline-end;
+}

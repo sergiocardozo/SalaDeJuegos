@@ -16,14 +16,15 @@
 
     <div class="align-items-end">
 
-        <button pButton type="button" label="LogIn" class="p-button-outlined" [routerLink]="['/login']">
+        <button *ngIf="!isLogin" pButton type="button" label="LogIn" class="p-button-outlined" [routerLink]="['/login']">
             <span class="pi pi-sign-in"></span>
         </button>
 
-        <button pButton type="button" label="LogOut" class="p-button-outlined p-button-danger"
-            [routerLink]="['/signup']">
+        <small *ngIf="isLogin">{{userEmail}}</small>
+        <button *ngIf="isLogin" (click)="onClick()" pButton type="button" label="LogOut" class="p-button-outlined p-button-danger">
             <span class="pi pi-sign-out"></span>
         </button>
+
     </div>
 
 </p-sidebar>
