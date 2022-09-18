@@ -13,11 +13,12 @@ export class AuthService {
     return this.auth.authState.pipe(map(auth => auth));
   }
 
-  async register(email: string, password: string) {
+  async register(email: string, password: string, userName: string) {
 
     return this.auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
         this.auth.currentUser.then((user) => {
+          console.log(user);
           user.updateProfile({ displayName: email });
         })
       });

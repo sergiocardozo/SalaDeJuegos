@@ -1,6 +1,6 @@
 ::ng-deep .p-sidebar {
     background-color: black;
-    width: 10em!important;    
+    width: 11em!important;    
     position: static;
 }
 ::ng-deep .p-sidebar-header {
@@ -25,4 +25,10 @@
 ::ng-deep .p-sidebar-content { 
     display: flex;
     flex-direction: column;
+}
+.font {
+    text-align: center;
+    color: azure;
+    font-size: 12px;
+    font-weight: bold;
 }

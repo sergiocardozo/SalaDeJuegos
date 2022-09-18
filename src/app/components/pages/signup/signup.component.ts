@@ -12,12 +12,12 @@ import { AuthService } from 'src/app/service/auth.service';
 export class SignupComponent implements OnInit {
 
   registerForm = new FormGroup({
+    userName: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl('')
   })
 
   usuario: UserModel = new UserModel();
-  errorMessage: string;
   error: boolean = false;
   message: string = '';
 
@@ -31,11 +31,11 @@ export class SignupComponent implements OnInit {
 
     if (form.invalid) { return; }
 
-    const { email, password } = this.usuario;
+    const { email, password, userName } = this.usuario;
 
     if (form.value['password'] !== form.value['confirmPwd']) {
 
-      this.auth.register(email, password)
+      this.auth.register(email, password, userName)
         .then((resp) => {
           setTimeout(() => {
             this.router.navigate(['/home']);
@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
           this.error = true;
           this.message = "El usuario ya esta registrado";
           setTimeout(() => {
-            this.errorMessage = '';
+            this.message = '';
             this.error = false;
           }, 1000);
         });
@@ -54,7 +54,7 @@ export class SignupComponent implements OnInit {
       this.error = true;
           this.message = "Las contraseñas no coinciden";
           setTimeout(() => {
-            this.errorMessage = '';
+            this.message = '';
             this.error = false;
           }, 3000);
     }

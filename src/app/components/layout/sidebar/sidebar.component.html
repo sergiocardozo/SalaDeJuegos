@@ -1,8 +1,7 @@
 <p-sidebar [visible]="true" [showCloseIcon]="false" [modal]="false">
 
+
     <p-divider type="dotted"></p-divider>
-
-
 
     <button pButton type="button" label="Home" class="p-button-outlined" [routerLink]="['/home']">
         <span class="pi pi-home"></span>
@@ -12,19 +11,23 @@
         <span class="pi pi-user"></span>
     </button>
 
-    <p-divider class="mt-5" type="dotted"></p-divider>
+    <button pButton type="button" label="Chat" class="p-button-outlined" [routerLink]="['/chat']">
+        <span class="pi pi-user"></span>
+    </button>
 
-    <div class="align-items-end">
 
-        <button *ngIf="!isLogin" pButton type="button" label="LogIn" class="p-button-outlined" [routerLink]="['/login']">
-            <span class="pi pi-sign-in"></span>
-        </button>
+    <p-divider class="d-flex align-items-end mt-5" type="dotted"></p-divider>
+    <small class="font" *ngIf="isLogin">Welcome</small>
+    <small class="font no-margin" *ngIf="isLogin">{{userEmail}}</small>
 
-        <small *ngIf="isLogin">{{userEmail}}</small>
-        <button *ngIf="isLogin" (click)="onClick()" pButton type="button" label="LogOut" class="p-button-outlined p-button-danger">
-            <span class="pi pi-sign-out"></span>
-        </button>
+    <button *ngIf="!isLogin" pButton type="button" label="LogIn" class="p-button-outlined" [routerLink]="['/login']">
+        <span class="pi pi-sign-in"></span>
+    </button>
 
-    </div>
+    <button *ngIf="isLogin" (click)="onClick()" pButton type="button" label="LogOut"
+        class="p-button-outlined p-button-danger mt-5">
+        <span class="pi pi-sign-out"></span>
+    </button>
+
 
 </p-sidebar>

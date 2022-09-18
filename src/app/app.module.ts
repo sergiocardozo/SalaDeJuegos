@@ -6,8 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
-import { MessagesModule } from 'primeng/messages';
-import { MessageModule } from 'primeng/message';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,8 +22,7 @@ import { AlertErrorComponent } from './components/layout/alert-error/alert-error
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 @NgModule({
   declarations: [
@@ -47,10 +45,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     SidebarModule,
     ButtonModule,
     DividerModule,
-    MessageModule,
-    MessagesModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
   ],

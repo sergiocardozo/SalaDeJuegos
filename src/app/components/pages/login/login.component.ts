@@ -10,7 +10,8 @@ import { UserModel } from 'src/app/models/user.models';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  error: boolean = false;
+  message: string = '';
   usuario: UserModel = new UserModel();
   constructor(private auth: AuthService, private router: Router) { }
 
@@ -22,12 +23,23 @@ export class LoginComponent implements OnInit {
     if (form.invalid) { return; }
 
     this.auth.login(this.usuario.email, this.usuario.password)
-    .then(resp => {
-      console.log(resp);
-      this.router.navigate(['/home']);
-    }).catch((err) =>{
-      console.log(err);
-    })
+      .then(resp => {
+        console.log(resp);
+        setTimeout(() => {
+          if (this.usuario.password) {
+            this.router.navigate(['/home']);
+
+          }
+        }, 2000);
+      }).catch((err) => {
+        console.log(err);
+        this.error = true;
+        this.message = "Algo salio mal";
+        setTimeout(() => {
+          this.message = '';
+          this.error = false;
+        }, 1000);
+      })
   }
 
   testLogin(form: NgForm) {

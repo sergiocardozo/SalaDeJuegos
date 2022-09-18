@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
   { path: 'about', component: AboutComponent },
+  { path: 'chat', loadChildren: () => import('./module/chat-room/chat-room.module').then(m => m.ChatRoomModule) },
   { path: '**', component: NotFoundComponent }
 
 
