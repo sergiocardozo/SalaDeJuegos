@@ -32,3 +32,6 @@
     font-size: 12px;
     font-weight: bold;
 }
+::ng-deep .p-splitbutton.p-button-text > .p-button {
+    color: white;
+}

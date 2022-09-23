@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
-
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AhorcadoComponent } from './module/games/ahorcado/ahorcado.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     AboutComponent,
     NotFoundComponent,
     SignupComponent,
-    AlertErrorComponent
+    AlertErrorComponent,
+    AhorcadoComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     ReactiveFormsModule,
     SidebarModule,
     ButtonModule,
+    SplitButtonModule,
     DividerModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),

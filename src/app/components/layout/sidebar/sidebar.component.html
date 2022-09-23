@@ -11,9 +11,12 @@
         <span class="pi pi-user"></span>
     </button>
 
-    <button pButton type="button" label="Chat" class="p-button-outlined" [routerLink]="['/chat']">
+    <button *ngIf="isLogin" pButton type="button" label="Chat" class="p-button-outlined" [routerLink]="['/chat']">
         <span class="pi pi-user"></span>
     </button>
+
+    <p-splitButton label="Games" [model]="this.item" dir="ltr" styleClass="p-button-raised p-button-text mr-2 mb-2">
+    </p-splitButton>
 
 
     <p-divider class="d-flex align-items-end mt-5" type="dotted"></p-divider>

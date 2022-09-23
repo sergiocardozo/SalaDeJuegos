@@ -7,7 +7,6 @@
 
         </div>
         <div class="text-center mt-4 name"> Welcome! </div>
-        <p>Enter your email adress, and password to access admin panel</p>
         <form class="p-3 mt-3" #registro='ngForm' (ngSubmit)="login(registro)">
 
             <span class="text-danger" *ngIf="registro.submitted && registro.controls['email'].errors">El correo es
@@ -27,41 +26,10 @@
             </div>
             <button class="btn mt-3">Login</button>
             <button class="btn mt-3" (click)="testLogin(registro)">Login Test</button>
+            <app-alert-error *ngIf="error === true" [message]="message"></app-alert-error>
         </form>
         <div class="text-center fs-6">
             <span>Create an Account </span> <a routerLink="/signup">Register</a>
         </div>
     </div>
 </div>
-
-<!-- <div class="pt-5">
-
-    <div class="wrapper">
-
-        <div class="logo">
-            <img src="https://www.freepnglogos.com/uploads/mario-png/mario-nanobuds-deviantart-37.png" width="200"
-                alt="mario nanobuds deviantart" />
-        </div>
-
-        <div class="text-center mt-4 name">
-            Sala de Juegos
-        </div>
-
-        <form class="p-3 mt-3" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
-                <input type="text" placeholder="Email" formControlName="email">
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="password" placeholder="Password" formControlName="password">
-            </div>
-            <button class="btn mt-3">Login</button>
-            <button class="btn mt-3">Test Login</button>
-            <button class="btn mt-3" (click)="onClick()">Login with Google</button>
-        </form>
-        <div class="text-center fs-6">
-            <a href="#">Forget password?</a> or <a [routerLink]="['/signup']">Sign up</a>
-        </div>
-    </div>
-</div> -->

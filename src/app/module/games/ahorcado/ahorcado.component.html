@@ -1,0 +1,34 @@
+<div class="container">
+    <div *ngIf="menu;else juego" class="menuStart">
+        <p class="menuTitulo">HangMan!</p>
+        <button class="botonComenzar" (click)="start()">Play Now</button>
+    </div>
+
+    <ng-template #juego>
+        <div class="row">
+            <div class="col text-center">
+                <p class="puntaje">Score:{{score}}</p>
+                <img src="../../../../assets/img/games/ahorcado/{{mistakesRemaining}}.jpg" alt="ahorcado-img" class="ahorcado-img">
+                <p class="textoIntentos">Intentos {{mistakesRemaining}}/6</p>
+            </div>
+        </div>
+        <div class="palabraOculta">
+            <h1>{{palabraOculta}}</h1>
+        </div>
+        <div *ngIf="yourWin" class="pantallaFinal">
+            <p class="infoFinal">¡Adivinaste!</p><br>
+            <button class="botonCotinuar" (click)="continue()">Continuar</button>
+        </div>
+        
+        <div *ngIf="lose" class="pantallaFinal">
+            <p class="infoFinal"> PERDISTE! </p>
+            <p class="infoFinal"> La words era: {{ words }} </p><br>
+            <button class="botonVolverAJugar" (click)="start()">Volver a Jugar</button>
+            <button class="botonVolverAMenu" (click)="backToMenu()">Volver al Menu</button>
+        </div>
+        <div class="letras" *ngIf="!yourWin && !lose">  
+            <button (click)="verify(letra)" *ngFor="let letra of key" class="botonLetras p-1" > {{letra}} </button> 
+        </div>
+    </ng-template>
+    
+</div>

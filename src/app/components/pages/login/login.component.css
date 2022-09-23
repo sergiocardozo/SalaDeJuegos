@@ -1,6 +1,6 @@
 .wrapper {
     max-width: 350px;
-    min-height: 480px;
+    min-height: 100%;
     margin: auto auto;
     padding: 30px;
     background-color: #ecf0f3;

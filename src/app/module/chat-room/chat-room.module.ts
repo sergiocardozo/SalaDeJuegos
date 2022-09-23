@@ -11,6 +11,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp } from '@firebase/app';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     CommonModule,
     ChatRoomRoutingModule,
     AngularFirestoreModule,
+    DividerModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())

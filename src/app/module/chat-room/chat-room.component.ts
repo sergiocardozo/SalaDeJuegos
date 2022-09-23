@@ -9,10 +9,11 @@ import { ChatService } from './service/chat.service';
 })
 export class ChatRoomComponent implements OnInit {
 
+  user;
   message: string = "";
   element: any;
 
-  constructor( public chatService: ChatService ) {
+  constructor( public chatService: ChatService, private auth: AuthService ) {
     this.chatService.getCollection()
                     .subscribe( () => {
                       setTimeout(() => {
@@ -22,7 +23,9 @@ export class ChatRoomComponent implements OnInit {
   }
   ngOnInit(): void {
     this.element = document.getElementById('contenedorMensajes');
-
+    this.auth.isAuth().subscribe( user => {
+      this.user = user;
+    })
   }
 
   send_message() {

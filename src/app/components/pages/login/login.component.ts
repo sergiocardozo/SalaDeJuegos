@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   error: boolean = false;
   message: string = '';
   usuario: UserModel = new UserModel();
+
   constructor(private auth: AuthService, private router: Router) { }
 
 
@@ -20,26 +21,28 @@ export class LoginComponent implements OnInit {
   }
 
   login(form: NgForm) {
-    if (form.invalid) { return; }
 
-    this.auth.login(this.usuario.email, this.usuario.password)
+    if (form.invalid) { return; }
+    const { email, password } = this.usuario;
+    this.auth.login(email, password)
       .then(resp => {
-        console.log(resp);
-        setTimeout(() => {
-          if (this.usuario.password) {
+        if (resp) {
+          setTimeout(() => {
             this.router.navigate(['/home']);
 
-          }
-        }, 2000);
+          }, 2000);
+        } else {
+          this.error = true;
+          this.message = "Algo salio mal";
+          setTimeout(() => {
+            this.message = '';
+            this.error = false;
+          }, 1000);
+        }
       }).catch((err) => {
         console.log(err);
-        this.error = true;
-        this.message = "Algo salio mal";
-        setTimeout(() => {
-          this.message = '';
-          this.error = false;
-        }, 1000);
       })
+
   }
 
   testLogin(form: NgForm) {

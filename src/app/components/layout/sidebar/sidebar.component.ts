@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PrimeNGConfig } from 'primeng/api';
+import { PrimeNGConfig, MenuItem } from 'primeng/api';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+
+  item: MenuItem[];
 
   isLogin: boolean;
   userEmail: string;
@@ -29,6 +31,14 @@ export class SidebarComponent implements OnInit {
         this.isLogin = false;
       }
     })
+
+    this.item = [
+      {label: 'Ahorcado', icon: 'pi pi-cog', routerLink: ['/games/ahorcado']},
+      {label: 'Menor O Mayor', icon: 'pi pi-cog', routerLink: ['/games/menoroMayor']}
+
+
+    ]
+    
   }
 
   onClick() {

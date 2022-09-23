@@ -1,5 +1,4 @@
 <h1 class="text-center">Chat</h1>
-<hr>
 
 <div class="card-body">
 
@@ -7,42 +6,26 @@
 
         <div class="chat-history contenedorMensajes" id="contenedorMensajes">
             <ul class="m-b-0">
-                <li *ngFor="let chat of chatService.chats" class="clearfix">
-                    <div class="message-data text-right">
-                        <span class="message-data-time">{{ chat.email }} {{chat.fecha | date:'short'}}</span>
+                <li *ngFor="let chat of chatService.chats" class="p-2"
+                    [ngClass]="(user.uid==chat.uid)? 'enviado' : 'recibido'">
+                    <div>
+                        <span class="me align-items-left">{{ chat.email }} {{chat.fecha | date:'short'}}</span>
                     </div>
-                    <div class="message other-message float-right">{{ chat.mensaje }} </div>
+                    <div class="">{{ chat.mensaje }} </div>
                 </li>
 
             </ul>
         </div>
 
     </div>
-    <!-- <div class="contenedorMensajes" id="contenedorMensajes">
-        [ngClass]="{ 'badge-primary': chatService.user.uid == chat.uid,
-                       'badge-success': chatService.user.uid != chat.uid }"
-        <li *ngFor="let chat of chatService.chats" class="clearfix">
-            <div class="message-data text-right">
-                <span class="message-data-time">{{ chat.email }} {{chat.fecha | date:'short'}}</span>
-            </div>
-            <div class="message other-message"> {{ chat.mensaje }} </div>
-        </li>
-         <div [ngClass]="{ 'text-right': chatService.user.uid == chat.uid  }">
-            <span class="badge">
-            </span>
-            <p>
 
-            </p>
-        </div>
-
-    </div> -->
 </div>
 
-<form class="chat-message clearfix text-muted input-group" (ngSubmit)="send_message()">
+<form class="chatbox input-group" (ngSubmit)="send_message()">
 
 
     <span class="input-group-text" id="basic-addon2" (click)="send_message()">
-        <i class="pi pi-send"></i>
+        <i class="pi pi-send iconSend"></i>
     </span>
     <input type="text" class="form-control" placeholder="Send Message" [(ngModel)]="message"
         [ngModelOptions]="{standalone: true}">
