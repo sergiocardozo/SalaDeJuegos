@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="" style="text-align:center">
+        <div class="" style="min-width: 50%; text-align: left; max-height: 80px">
+            <p>Score: {{cuenta}}</p>
+        </div>
+        <label *ngIf='mostrarFin'>Termino el juego, su puntaje es : {{cuenta}}</label>
+        <div class="">
+            <button class="btn" role="button" *ngIf='mostrarFin'
+                (click)='reload()'>volver a intentarlo</button>
+        </div>
+    </div>
+
+    <div class="">
+        <h3> {{mensaje}} </h3>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <p class="text-start">La siguiente carta es menor, mayor o igual ?</p>
+        <img class="" width="200px" src={{cartaPrincipal.pathImg}}>
+        <div class="d-flex flex-column align-items-center">
+
+            <button (click)='play("mayor")' class="btn scale">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="100.000000pt" height="100.000000pt"
+                    viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+
+                    <g id="triangulo-arriba" transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                        fill="#000000" stroke="none">
+                        <path d="M2510 4208 c-38 -20 -2488 -3095 -2501 -3140 -15 -46 -4 -101 26
+-135 l23 -28 2502 0 2502 0 23 28 c30 34 41 89 26 135 -7 24 -432 566 -1231
+1567 -672 842 -1231 1540 -1244 1553 -28 28 -91 38 -126 20z" />
+                    </g>
+                </svg>
+            </button>
+
+            <button (click)='play("igual")' class="btn scale">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="100.000000pt" height="100.000000pt"
+                    viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path d="M512 4239 c-278 -36 -490 -262 -509 -542 -17 -268 143 -504 407 -599
+               l65 -23 2085 0 2085 0 65 23 c155 56 276 159 343 292 169 336 -4 728 -369 837
+               -56 17 -178 18 -2084 19 -1114 1 -2053 -2 -2088 -7z" />
+                        <path d="M483 2039 c-174 -29 -336 -151 -417 -313 -169 -334 11 -733 375 -833
+               60 -17 188 -18 2119 -18 1931 0 2059 1 2119 18 247 68 421 278 438 530 17 268
+               -143 504 -407 599 l-65 23 -2055 1 c-1150 1 -2078 -2 -2107 -7z" />
+                    </g>
+                </svg>
+            </button>
+
+            <button (click)='play("menor")' class="btn scale">
+
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="100.000000pt" height="100.000000pt"
+                    viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+
+                    <g id="triangulo-abajo" transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                        fill="#000000" stroke="none">
+                        <path d="M60 4207 c-30 -15 -60 -71 -60 -112 0 -17 8 -46 18 -65 18 -35 2409
+-3040 2463 -3095 25 -25 37 -30 79 -30 40 0 54 5 74 25 14 14 574 714 1246
+1555 799 1002 1224 1543 1231 1567 15 46 4 101 -26 135 l-23 28 -2489 2
+c-1977 2 -2493 0 -2513 -10z" />
+                    </g>
+                </svg>
+
+            </button>
+
+            
+        </div>
+    </div>
+    <p class="text-center">Intentos {{mistakesRemaining}}/6</p>
+
+</div>

@@ -1,0 +1,18 @@
+.container {
+    position: absolute;
+    height: 500px;
+}
+
+#triangulo-arriba {
+    fill: rgb(175, 6, 6);
+}
+#triangulo-abajo {
+    fill: rgb(3, 83, 3);
+}
+.btn {
+    background-color: transparent;
+    border: none;
+}
+.scale:active {
+    transform: scale(0.6);
+}

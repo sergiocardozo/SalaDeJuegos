@@ -1,0 +1,28 @@
+/* Add some padding inside the card container */
+/* .container {
+  height: 100%;
+  position: relative;
+
+} */
+
+img {
+  width: 250px;
+
+}
+
+.btn {
+  padding: 10px 10px 10px;
+  width: 30%;
+  background-color: rgb(190, 59, 59);
+  border-radius: 10%;
+}
+
+.preguntados {
+  height: 100vh;
+  background-image: url(../../../../assets/img/games/preguntados/fondo.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  padding: 0;
+  border-radius: 10px;
+}

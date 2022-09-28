@@ -8,7 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class AhorcadoComponent implements OnInit {
 
 
-  todasLasPalabras: string[] = ["vamonos", "nave", "cielo", "habra", "orden", "segura", "querida", "niña", "increible", "ademas", "deben", "libro", "calle", "cafe", "piensas", "hacemos", "especial", "queremos", "clark", "irme", "perfecto", "buscar", "odio", "piensa", "oficina", "hablas", "libre", "agente", "york", "llamar"];
+  arrayWords: string[] = ["vamonos", "nave", "cielo", "habra", "orden", "segura", "querida", "niña", "increible", "ademas", "deben", "libro", "calle", "cafe", "piensas", "hacemos", "especial", "queremos", "clark", "irme", "perfecto", "buscar", "odio", "piensa", "oficina", "hablas", "libre", "agente", "york", "llamar"];
   words = '';
   palabraOculta = '';
   mistakesRemaining = 0;
@@ -39,9 +39,9 @@ export class AhorcadoComponent implements OnInit {
     this.choseWords();
   }
   choseWords() {
-    this.numPalabra = this.getRandomInt(0, this.todasLasPalabras.length - 1);
-    this.palabraOculta = '_ '.repeat(this.todasLasPalabras[this.numPalabra].length);
-    this.words = this.todasLasPalabras[this.numPalabra].toUpperCase();
+    this.numPalabra = this.getRandomInt(0, this.arrayWords.length - 1);
+    this.palabraOculta = '_ '.repeat(this.arrayWords[this.numPalabra].length);
+    this.words = this.arrayWords[this.numPalabra].toUpperCase();
     this.menu = false;
     this.yourWin = false;
     this.lose = false;

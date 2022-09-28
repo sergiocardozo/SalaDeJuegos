@@ -1,0 +1,36 @@
+<div class="preguntados" *ngIf="!beginGame; else elseBlock">
+    <div class="d-flex flex-column align-items-center justify-content-around" style="height: 100%;">
+
+        <p>Juego</p>
+        <button class="btn" (click)="start()">Start Game</button>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <div class="preguntados">
+        <p class="fw-bolder text-uppercase">Score: {{score}}</p>
+
+        <div class="d-flex align-items-center flex-column">
+            <h3>Who is the hero of the picture?</h3>
+            <img class="card" [src]="imgHeroe" alt="Imagen Heroe">
+        </div>
+
+        <h3 class="text-center fw-bolder">Mistakes Remaining: {{intentos}}</h3>
+        <div class="d-flex align-items-center flex-column">
+
+
+            <div>
+                <button pButton pRipple type="button" class="p-button-rounded p-button-secondary m-1"
+                    (click)="answer(nameHeroes[0])">{{nameHeroes[0]}}</button>
+                <button pButton pRipple type="button" class="p-button-rounded p-button-secondary m-1"
+                    (click)="answer(nameHeroes[1])">{{nameHeroes[1]}}</button>
+            </div>
+            <div>
+                <button pButton pRipple type="button" class="p-button-rounded p-button-secondary m-1"
+                    (click)="answer(nameHeroes[2])">{{nameHeroes[2]}}</button>
+                <button pButton pRipple type="button" class="p-button-rounded p-button-secondary m-1"
+                    (click)="answer(nameHeroes[3])">{{nameHeroes[3]}}</button>
+            </div>
+
+        </div>
+    </div>
+</ng-template>
