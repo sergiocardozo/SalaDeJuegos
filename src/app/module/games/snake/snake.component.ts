@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ScoresService } from 'src/app/service/scores.service';
 import { Food } from './utils/food';
 import { outsideGrid } from './utils/gameboard-grid.utils';
 import { Snake } from './utils/snake';
@@ -18,7 +20,9 @@ export class SnakeComponent implements OnInit, AfterViewInit {
 
   lastRenderTime = 0
   gameOver = false
+  constructor(private scoreService: ScoresService, private route: Router) {
 
+  }
   ngAfterViewInit() {
     this.gameBoard = document.querySelector('.game-board');
     window.requestAnimationFrame(this.start.bind(this));
@@ -34,7 +38,8 @@ export class SnakeComponent implements OnInit, AfterViewInit {
 
   start(currentTime: any) {
     if (this.gameOver) {
-      return console.log('Game Over');
+      this.scoreService.addScore('Snake', this.food?.currentScore)
+
     }
 
     window.requestAnimationFrame(this.start.bind(this));
@@ -83,4 +88,7 @@ export class SnakeComponent implements OnInit, AfterViewInit {
     return 7;
   }
 
+  realizarEncuesta(){
+    this.route.navigate(['/games/encuestas']);
+}
 }

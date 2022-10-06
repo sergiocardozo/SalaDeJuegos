@@ -1,12 +1,14 @@
 <div class="preguntados" *ngIf="!beginGame; else elseBlock">
     <div class="d-flex flex-column align-items-center justify-content-around" style="height: 100%;">
 
-        <p class="text-center m-5 fw-bolder">Para ganar, tendrás que conseguir los personajes correspondientes a cada una de las categorías. Gira la rueda
+        <p class="text-center m-5 fw-bolder">Para ganar, tendrás que conseguir los personajes correspondientes a cada
+            una de las categorías. Gira la rueda
             y el azar decidirá las preguntas que tendrás que responder. Si caes en la casilla especial, podrás jugar
             para conseguir el personaje que tú elijas. ¡Pon a prueba tu conocimiento y desafía a tus amigos!</p>
         <button class="btn fw-bolder text-uppercase" (click)="start()">Start Game</button>
     </div>
 </div>
+
 <ng-template #elseBlock>
     <div class="preguntados">
         <p class="fw-bolder text-uppercase">Score: {{score}}</p>
@@ -32,6 +34,13 @@
                     (click)="answer(nameHeroes[3])">{{nameHeroes[3]}}</button>
             </div>
 
+
+        </div>
+        <div class="align-items-center">
+
+            <label *ngIf='mostrarFin'>Termino el juego, su puntaje es : {{score}}</label>
+            <button class="btn" role="button" *ngIf="mostrarFin" (click)="realizarEncuesta()">Realizar
+                Encuesta</button>
         </div>
     </div>
 </ng-template>

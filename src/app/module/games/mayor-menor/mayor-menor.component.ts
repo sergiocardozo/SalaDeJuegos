@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ScoresService } from 'src/app/service/scores.service';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -7,13 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MayorMenorComponent implements OnInit {
 
+  menu = true;
+
   cartaPrincipal;
   cartaSecundaria;
-  mensaje!:string;
- 
+  mensaje!: string;
+
   cuenta: number = 0;
   mistakesRemaining = 6;
-  mostrarFin: boolean= false;
+  mostrarFin: boolean = false;
 
   cartas = [
     { numero: 1, pathImg: '../../../../assets/img/games/mayormenor/1.jpg' },
@@ -28,19 +32,19 @@ export class MayorMenorComponent implements OnInit {
     { numero: 10, pathImg: '../../../../assets/img/games/mayormenor/10.jpg' },
     { numero: 11, pathImg: '../../../../assets/img/games/mayormenor/11.jpg' },
     { numero: 12, pathImg: '../../../../assets/img/games/mayormenor/12.jpg' },
-  
-
-];
 
 
-  constructor() {
+  ];
+
+
+  constructor(private scoreService: ScoresService, private route: Router) {
     this.cartaPrincipal = this.calcularCartaRandom();
     this.cartaSecundaria = this.calcularCartaRandom();
   }
 
   counter(i: number) {
     return new Array(i);
-}
+  }
   ngOnInit(): void {
   }
 
@@ -49,28 +53,30 @@ export class MayorMenorComponent implements OnInit {
     return this.cartas[Math.floor(Math.random() * this.cartas.length)];
   }
 
-  play(res:string){
-    if(this.respuesta(res)){
+  play(res: string) {
+    if (this.respuesta(res)) {
       this.cuenta++;
       this.cartaPrincipal = this.cartaSecundaria;
-      this.cartaSecundaria= this.calcularCartaRandom();
-      this.mensaje ='BIEN!'
-    }else{
-      if(this.mistakesRemaining > 0){ 
-      this.mistakesRemaining--;
-      this.mensaje ='NO :(';
-      
-      this.cartaPrincipal = this.cartaSecundaria;
-      this.cartaSecundaria= this.calcularCartaRandom();
-      if(this.mistakesRemaining == 0){
-        this.mostrarFin= true; 
+      this.cartaSecundaria = this.calcularCartaRandom();
+      this.mensaje = 'BIEN!'
+    } else {
+      if (this.mistakesRemaining > 0) {
+        this.mistakesRemaining--;
+        this.mensaje = 'NO :(';
+
+        this.cartaPrincipal = this.cartaSecundaria;
+        this.cartaSecundaria = this.calcularCartaRandom();
+        if (this.mistakesRemaining == 0) {
+          this.mostrarFin = true;
+          this.scoreService.addScore('Mayor o Menor', this.cuenta)
+
+        }
       }
-    }
     }
   }
 
 
-  respuesta(res: string):boolean{ 
+  respuesta(res: string): boolean {
     switch (res) {
       case 'mayor':
         if (this.cartaPrincipal.numero > this.cartaSecundaria.numero) {
@@ -104,6 +110,8 @@ export class MayorMenorComponent implements OnInit {
     window.location.reload();
   }
 
-  
+  realizarEncuesta(){
+    this.route.navigate(['/games/encuestas']);
+}
 
 }

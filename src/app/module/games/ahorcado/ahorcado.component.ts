@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { ScoresService } from 'src/app/service/scores.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -18,7 +20,7 @@ export class AhorcadoComponent implements OnInit {
   key = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   numPalabra: number = 0;
   score: number = 0;
-  constructor() {
+  constructor(private scoreService: ScoresService, private route: Router) {
   }
 
   ngOnInit(): void {
@@ -31,6 +33,16 @@ export class AhorcadoComponent implements OnInit {
     this.mistakesRemaining = 0;
     this.choseWords();
     this.score = 0;
+  }
+  async restart() {
+    await this.scoreService.addScore('Ahorcado', this.score)
+    this.menu = false;
+    this.yourWin = false;
+    this.lose = false;
+    this.mistakesRemaining = 0;
+    this.choseWords();
+    this.score = 0;
+
   }
   continue() {
     this.yourWin = false;
@@ -46,6 +58,7 @@ export class AhorcadoComponent implements OnInit {
     this.yourWin = false;
     this.lose = false;
   }
+
 
   getRandomInt(min: number, max: number): number {
     min = Math.ceil(min);
@@ -81,10 +94,13 @@ export class AhorcadoComponent implements OnInit {
     }
   }
 
-  backToMenu() {
+  async backToMenu() {
+    await this.scoreService.addScore('Ahorcado', this.score)
+
     this.menu = true;
     this.lose = false;
     this.score = 0;
+
   }
 
   existeLetra(letra: string) {
@@ -94,5 +110,7 @@ export class AhorcadoComponent implements OnInit {
     }
   }
 
-
+  realizarEncuesta(){
+      this.route.navigate(['/games/encuestas']);
+  }
 }

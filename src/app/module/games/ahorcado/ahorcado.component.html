@@ -23,8 +23,9 @@
         <div *ngIf="lose" class="pantallaFinal">
             <p class="infoFinal"> PERDISTE! </p>
             <p class="infoFinal"> La words era: {{ words }} </p><br>
-            <button class="botonVolverAJugar" (click)="start()">Volver a Jugar</button>
+            <button class="botonVolverAJugar" (click)="restart()">Volver a Jugar</button>
             <button class="botonVolverAMenu" (click)="backToMenu()">Volver al Menu</button>
+            <button class="botonVolverAMenu" (click)="realizarEncuesta()">Realizar Encuesta</button>
         </div>
         <div class="letras" *ngIf="!yourWin && !lose">  
             <button (click)="verify(letra)" *ngFor="let letra of key" class="botonLetras p-1" > {{letra}} </button> 

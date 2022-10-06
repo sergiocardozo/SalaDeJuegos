@@ -12,6 +12,7 @@ export class ChatRoomComponent implements OnInit {
   user;
   message: string = "";
   element: any;
+  
 
   constructor( public chatService: ChatService, private auth: AuthService ) {
     this.chatService.getCollection()

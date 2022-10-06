@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PreguntadosService } from 'src/app/service/preguntados.service';
+import { ScoresService } from 'src/app/service/scores.service';
 
 @Component({
   selector: 'app-preguntados',
@@ -9,18 +11,19 @@ import { PreguntadosService } from 'src/app/service/preguntados.service';
 })
 export class PreguntadosComponent implements OnInit {
 
+  mostrarFin: boolean = false;
 
   listHeroes: Array<any> = [];
   beginGame = false;
   imgHeroe: string;
   nameHeroes: string[] = []
-
+  heroeSelected: any;
   correctHeroe: string = "";
   score = 0;
   intentos = 3;
 
 
-  constructor(private pregServ: PreguntadosService) { }
+  constructor(private pregServ: PreguntadosService, private scoreService: ScoresService, private route: Router) { }
 
   ngOnInit(): void {
 
@@ -39,19 +42,19 @@ export class PreguntadosComponent implements OnInit {
         }
       })
       this.listHeroes = newlist;
+      console.log('primer', this.listHeroes);
+      this.heroeSelected = this.listHeroes[Math.floor(Math.random() * this.listHeroes.length)];
 
-      const chosenHeroe = this.listHeroes[Math.floor(Math.random() * this.listHeroes.length)];
-      this.imgHeroe = chosenHeroe.thumbnail.path + '.jpg';
-      this.correctHeroe = chosenHeroe.name;
+      this.imgHeroe = this.heroeSelected.thumbnail.path + '.jpg';
+      this.correctHeroe = this.heroeSelected.name;
 
       for (let i = 0; i < 3; i++) {
-        if (chosenHeroe != this.correctHeroe) {
+        if (this.heroeSelected != this.correctHeroe) {
 
           this.nameHeroes.push(this.listHeroes[i].name);
         }
       }
       this.nameHeroes.push(this.correctHeroe);
-      console.log(this.nameHeroes);
 
     })
 
@@ -61,11 +64,14 @@ export class PreguntadosComponent implements OnInit {
     this.score = 0;
     this.intentos = 3;
     this.beginGame = true;
+    this.mostrarFin = false;
   }
 
   answer(heroe: string) {
     if (heroe === this.correctHeroe) {
-      this.nameHeroes = [];
+      for (let i = this.nameHeroes.length; i > 0; i--) {
+        this.nameHeroes.pop();
+      }
       this.getCharacters();
       this.score += 5;
     } else {
@@ -73,9 +79,15 @@ export class PreguntadosComponent implements OnInit {
       this.getCharacters();
       this.nameHeroes = [];
       if (this.intentos === 0) {
-        this.beginGame = false;
+        this.mostrarFin = true;
+        this.scoreService.addScore('preguntados', this.score);
+
       }
     }
+  }
+
+  realizarEncuesta() {
+    this.route.navigate(['/games/encuestas']);
   }
 }
 

@@ -1,16 +1,16 @@
-    <div>
-        <div class="container2" style="background-color: blue;">
-            <p>Score {{food?.currentScore}} </p>
-            <div class="score-card">
-                <div class="score-board">
-                </div>
-
-            </div>
-            <div class="game-over" *ngIf="gameOver">
-                <h1>Game Over</h1>
+<div>
+    <div class="container2" style="background-color: blue;">
+        <p>Score {{food?.currentScore}} </p>
+        <div class="score-card">
+            <div class="score-board">
             </div>
 
-            <div class="game-board">
-            </div>
+        </div>
+        <div *ngIf="gameOver">
+            <button class="botonVolverAMenu" (click)="realizarEncuesta()">Realizar Encuesta</button>
+        </div>
+
+        <div class="game-board">
         </div>
     </div>
+</div>

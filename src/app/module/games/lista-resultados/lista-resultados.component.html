@@ -1,0 +1,21 @@
+<div class="container" id="containerTable">
+    <h2 class="text-center">Resultados</h2>
+     <table class="table table-dark table-striped table-bordered border">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Usuario</th>
+          <th>Juego</th>
+          <th>Puntaje</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor='let item of resultados' >
+          <td>{{item.date | date:'shortDate'}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.game}}</td> 
+          <td>{{item.score}}</td>
+        </tr> 
+      </tbody>
+    </table>
+  </div>

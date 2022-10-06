@@ -7,7 +7,7 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
 import { SignupComponent } from './components/pages/signup/signup.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
