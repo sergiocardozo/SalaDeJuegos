@@ -29,6 +29,7 @@
                 </div>
                 <button class="btn mt-3">Login</button>
                 <button class="btn mt-3" (click)="testLogin(registro)">Login Test</button>
+                <button class="btn mt-3" (click)="testAdmin(registro)">Login Admin</button>
                 <app-alert-error *ngIf="error === true" [message]="message"></app-alert-error>
             </form>
             <div class="text-center fs-6">

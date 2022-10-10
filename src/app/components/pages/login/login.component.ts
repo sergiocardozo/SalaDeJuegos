@@ -48,5 +48,8 @@ export class LoginComponent implements OnInit {
   testLogin(form: NgForm) {
     form.setValue({ email: 'cuentatest@gmail.com', password: 'test1234' })
   }
+  testAdmin(form: NgForm) {
+    form.setValue({ email: 'scardozo.sc@gmail.com', password: '123456' })
+  }
 }
 
