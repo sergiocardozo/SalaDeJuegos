@@ -1,18 +1,54 @@
-.container {
-    position: absolute;
-    height: 500px;
+.contenedor {
+    height: 100%;
+    background: rgb(198, 195, 254);
+    background: linear-gradient(90deg, rgba(198, 195, 254, 1) 17%, rgba(9, 9, 121, 1) 56%, rgba(0, 121, 255, 1) 100%);
+}
+
+.botonComenzar {
+    position: relative;
+    padding: 10px 10px 10px;
+    width: 30%;
+    top: 92%;
+    left: 34%;
+    background-color: rgb(190, 59, 59);
+    border-radius: 10%;
+}
+
+.menuTitulo {
+    text-align: center;
+    position: inherit;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 0 24px;
+    text-transform: uppercase;
+}
+
+.menuStart {
+    background-image: url(../../../../assets/img/games/higherlower.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 0;
+    border-radius: 10px;
 }
 
 #triangulo-arriba {
     fill: rgb(175, 6, 6);
 }
+
 #triangulo-abajo {
     fill: rgb(3, 83, 3);
 }
-.btn {
+
+.botn {
     background-color: transparent;
     border: none;
 }
+
 .scale:active {
     transform: scale(0.6);
 }

@@ -1,53 +1,57 @@
-<div class="pt-5 container">
+<div class="contenedor">
 
-    <div class="wrapper">
-        <div class="logo">
-            <img src="https://www.freepnglogos.com/uploads/mario-png/mario-nanobuds-deviantart-37.png" width="200"
-                alt="mario nanobuds deviantart" />
-        </div>
-        <div class="text-center mt-4 name"> Created Account </div>
-        <form autocomplete="off" class="p-3 mt-3" (ngSubmit)="onSubmit(registro)" #registro="ngForm">
+    <div class="pt-5 container">
 
-            <span class="text-danger" *ngIf="registro.submitted && registro.controls['userName'].errors">Debe
-                contener 6 caracteres</span>
-
-            <div class="d-flex form-field align-items-center">
-                <span class="pi pi-user"></span>
-                <input type="text" name="userName" id="userName" placeholder="UserName" [(ngModel)]="usuario.userName"
-                    required>
+        <div class="wrapper">
+            <div class="logo">
+                <img src="https://www.freepnglogos.com/uploads/mario-png/mario-nanobuds-deviantart-37.png" width="200"
+                    alt="mario nanobuds deviantart" />
             </div>
+            <div class="text-center mt-4 name"> Created Account </div>
+            <form autocomplete="off" class="p-3 mt-3" (ngSubmit)="onSubmit(registro)" #registro="ngForm">
 
-            <span class="text-danger" *ngIf="registro.submitted && registro.controls['email'].errors">El correo es
-                obligatorio</span>
-            <div class="form-field d-flex align-items-center">
-                <span class="pi pi-envelope"></span>
-                <input type="email" name="email" id="email" placeholder="E-mail" [(ngModel)]="usuario.email" required
-                    email>
-            </div>
+                <span class="text-danger" *ngIf="registro.submitted && registro.controls['userName'].errors">Debe
+                    contener 6 caracteres</span>
 
-            <span class="text-danger" *ngIf="registro.submitted && registro.controls['password'].errors">Debe contener 6
-                caracteres</span>
-            <div class="d-flex">
-
-                <div class="form-field d-flex align-items-center">
-                    <span class="pi pi-lock"></span>
-                    <input type="password" name="password" id="pwd" [(ngModel)]="usuario.password"
-                        placeholder="Password" minlength="6" required>
-                </div>
-                <div class="form-field d-flex align-items-center">
-                    <span class="pi pi-lock"></span>
-                    <input type="password" placeholder="Confirmar Password">
+                <div class="d-flex form-field align-items-center">
+                    <span class="pi pi-user"></span>
+                    <input type="text" name="userName" id="userName" placeholder="UserName"
+                        [(ngModel)]="usuario.userName" required>
                 </div>
 
-            </div>
-            <button class="btn mt-3">
-                Sign up
-            </button>
-            <app-alert-error *ngIf="error === true" [message]="message"></app-alert-error>
-        </form>
-        <div class="text-center fs-6">
-            <span>Do You have Account?</span><a routerLink="/login"> Login</a>
-        </div>
+                <span class="text-danger" *ngIf="registro.submitted && registro.controls['email'].errors">El correo es
+                    obligatorio</span>
+                <div class="form-field d-flex align-items-center">
+                    <span class="pi pi-envelope"></span>
+                    <input type="email" name="email" id="email" placeholder="E-mail" [(ngModel)]="usuario.email"
+                        required email>
+                </div>
 
+                <span class="text-danger" *ngIf="registro.submitted && registro.controls['password'].errors">Debe
+                    contener 6
+                    caracteres</span>
+                <div class="d-flex">
+
+                    <div class="form-field d-flex align-items-center">
+                        <span class="pi pi-lock"></span>
+                        <input type="password" name="password" id="pwd" [(ngModel)]="usuario.password"
+                            placeholder="Password" minlength="6" required>
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="pi pi-lock"></span>
+                        <input type="password" placeholder="Confirmar Password">
+                    </div>
+
+                </div>
+                <button class="btn mt-3">
+                    Sign up
+                </button>
+                <app-alert-error *ngIf="error === true" [message]="message"></app-alert-error>
+            </form>
+            <div class="text-center fs-6">
+                <span>Do You have Account?</span><a routerLink="/login"> Login</a>
+            </div>
+
+        </div>
     </div>
 </div>

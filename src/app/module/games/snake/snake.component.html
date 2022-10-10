@@ -1,13 +1,14 @@
 <div>
     <div class="container2" style="background-color: blue;">
         <p>Score {{food?.currentScore}} </p>
-        <div class="score-card">
+        <div *ngIf="!gameOver" class="score-card">
             <div class="score-board">
             </div>
 
         </div>
         <div *ngIf="gameOver">
-            <button class="botonVolverAMenu" (click)="realizarEncuesta()">Realizar Encuesta</button>
+            <button class="btn btn-success m-2" (click)="restart()">Volver a Jugar</button>
+            <button class="btn btn-success" (click)="realizarEncuesta()">Realizar Encuesta</button>
         </div>
 
         <div class="game-board">

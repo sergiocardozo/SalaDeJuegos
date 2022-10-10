@@ -1,14 +1,15 @@
-<div class="container">
-    <div *ngIf="menu;else juego" class="menuStart">
-        <p class="menuTitulo">HangMan!</p>
-        <button class="botonComenzar" (click)="start()">Play Now</button>
-    </div>
+<div *ngIf="menu;else juego" class="menuStart">
+    <p class="menuTitulo">HangMan!</p>
+    <button class="botonComenzar" (click)="start()">Play Now</button>
+</div>
 
-    <ng-template #juego>
+<ng-template #juego>
+    <div class="container">
         <div class="row">
             <div class="col text-center">
                 <p class="puntaje">Score:{{score}}</p>
-                <img src="../../../../assets/img/games/ahorcado/{{mistakesRemaining}}.jpg" alt="ahorcado-img" class="ahorcado-img">
+                <img src="../../../../assets/img/games/ahorcado/{{mistakesRemaining}}.jpg" alt="ahorcado-img"
+                    class="ahorcado-img">
                 <p class="textoIntentos">Intentos {{mistakesRemaining}}/6</p>
             </div>
         </div>
@@ -19,17 +20,17 @@
             <p class="infoFinal">¡Adivinaste!</p><br>
             <button class="botonCotinuar" (click)="continue()">Continuar</button>
         </div>
-        
+
         <div *ngIf="lose" class="pantallaFinal">
             <p class="infoFinal"> PERDISTE! </p>
-            <p class="infoFinal"> La words era: {{ words }} </p><br>
-            <button class="botonVolverAJugar" (click)="restart()">Volver a Jugar</button>
-            <button class="botonVolverAMenu" (click)="backToMenu()">Volver al Menu</button>
-            <button class="botonVolverAMenu" (click)="realizarEncuesta()">Realizar Encuesta</button>
+            <p class="infoFinal"> La palabra era: {{ words }} </p><br>
+            <button class="btn btn-success m-2" (click)="restart()">Volver a Jugar</button>
+            <button class="btn btn-danger m-2" (click)="backToMenu()">Volver al Menu</button>
+            <button class="btn btn-success m-2" (click)="realizarEncuesta()">Realizar Encuesta</button>
         </div>
-        <div class="letras" *ngIf="!yourWin && !lose">  
-            <button (click)="verify(letra)" *ngFor="let letra of key" class="botonLetras p-1" > {{letra}} </button> 
+        <div class="letras" *ngIf="!yourWin && !lose">
+            <button (click)="verify(letras)" *ngFor="let letras of key" class="botonLetras m-1"> {{letras}} </button>
+
         </div>
-    </ng-template>
-    
-</div>
+    </div>
+</ng-template>

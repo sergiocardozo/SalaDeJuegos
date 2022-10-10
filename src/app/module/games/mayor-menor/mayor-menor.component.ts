@@ -55,7 +55,7 @@ export class MayorMenorComponent implements OnInit {
 
   play(res: string) {
     if (this.respuesta(res)) {
-      this.cuenta++;
+      this.cuenta += 10;
       this.cartaPrincipal = this.cartaSecundaria;
       this.cartaSecundaria = this.calcularCartaRandom();
       this.mensaje = 'BIEN!'
@@ -106,12 +106,16 @@ export class MayorMenorComponent implements OnInit {
     }
   }
 
+  start() {
+    this.menu = false;
+
+  }
   reload() {
     window.location.reload();
   }
 
-  realizarEncuesta(){
+  realizarEncuesta() {
     this.route.navigate(['/games/encuestas']);
-}
+  }
 
 }

@@ -1,0 +1,27 @@
+<h2 class="text-center">Encuestas</h2>
+<div class="container" id="containerTable">
+    <table class="table table-dark table-striped table-bordered border">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Telefono</th>
+                <th>Volveria?</th>
+                <th>Sugerencias</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor='let item of resultados'>
+                <td>{{item.email}}</td>
+                <td>{{item.nombre }}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.edad}}</td>
+                <td>{{item.telefono}}</td>
+                <td>{{item.playAgain}}</td>
+                <td>{{item.sugerencias}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,16 @@
+.contenedor {
+    background-color: #4bc6b9;
+    height: 100%;
+    border-radius: 10px;
+}
+.table {
+    border-radius: 10px;
+}
+.containerTable {
+    height: 550px;
+    overflow-y: scroll;
+    padding: 0.3rem;
+}
+.containerTable::-webkit-scrollbar {
+    display: none;
+}

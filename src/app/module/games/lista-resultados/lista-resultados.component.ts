@@ -12,11 +12,6 @@ export class ListaResultadosComponent implements OnInit {
   element: any;
 
   constructor(public scoreService: ScoresService) { 
-    
-  }
-
-  ngOnInit(): void {
-    this.element = document.getElementById('containerTable');
     this.scoreService.getCollection()
     .subscribe((data) => {
       setTimeout(() => {
@@ -26,6 +21,11 @@ export class ListaResultadosComponent implements OnInit {
       this.resultados = data;
       
     })
+  }
+
+  ngOnInit(): void {
+    this.element = document.getElementById('containerTable');
+    
   }
 
 }

@@ -21,6 +21,7 @@ export class PreguntadosComponent implements OnInit {
   correctHeroe: string = "";
   score = 0;
   intentos = 3;
+  nameHeroes2: any;
 
 
   constructor(private pregServ: PreguntadosService, private scoreService: ScoresService, private route: Router) { }
@@ -36,30 +37,35 @@ export class PreguntadosComponent implements OnInit {
     this.pregServ.getAllHeroes().subscribe((res: any) => {
 
       listAct = res.data.results;
+      //skipeo los personajes de marvel que no tienen imagen 
       const newlist = listAct.filter(item => {
         if (item.thumbnail.path !== path) {
           return item;
         }
       })
       this.listHeroes = newlist;
-      console.log('primer', this.listHeroes);
+      //selecciono un personaje al azar
       this.heroeSelected = this.listHeroes[Math.floor(Math.random() * this.listHeroes.length)];
 
       this.imgHeroe = this.heroeSelected.thumbnail.path + '.jpg';
       this.correctHeroe = this.heroeSelected.name;
 
-      for (let i = 0; i < 3; i++) {
-        if (this.heroeSelected != this.correctHeroe) {
-
-          this.nameHeroes.push(this.listHeroes[i].name);
-        }
-      }
-      this.nameHeroes.push(this.correctHeroe);
-
+      
+      this.nombreHeroes();
+     
     })
-
-
   };
+
+  nombreHeroes() {
+    for (let i = 0; i < 4; i++) {
+      if (this.heroeSelected != this.correctHeroe && this.nameHeroes.length < 4 && this.correctHeroe != this.heroeSelected) {
+        this.nameHeroes.push(this.listHeroes[i].name);
+        this.nameHeroes.push(this.correctHeroe);
+        this.nameHeroes[Math.random() * this.nameHeroes.length];
+      }
+    }
+
+  }
   start() {
     this.score = 0;
     this.intentos = 3;

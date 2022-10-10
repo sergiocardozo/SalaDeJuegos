@@ -13,7 +13,12 @@ export class EncuestaService {
   constructor(private afs: AngularFirestore) {
     this.itemCollection = afs.collection<Encuestas>('encuestas');
   }
-
+  getCollection() {
+    this.itemCollection = this.afs.collection<Encuestas>('encuestas');
+  
+    return this.itemCollection.valueChanges();
+    
+  }
   addEncuesta(datos: any) {
     this.itemCollection = this.afs.collection('encuestas');
     return this.itemCollection.add(Object.assign({}, datos));

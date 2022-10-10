@@ -15,10 +15,14 @@
         <span class="pi pi-user"></span>
     </button>
 
-    <p-splitButton *ngIf="isLogin" label="Games" [model]="this.item" dir="ltr" styleClass="p-button-raised p-button-text mr-2 mb-2">
-    </p-splitButton>
+    <!-- <p-splitButton *ngIf="isLogin" label="Games" [model]="this.item" dir="ltr" styleClass="p-button-raised p-button-text mr-2 mb-2">
+    </p-splitButton> -->
 
     <button *ngIf="isLogin" pButton type="button" label="resultados" class="p-button-outlined" [routerLink]="['/games/resultados']">
+        <span class="pi pi-user"></span>
+    </button>
+
+    <button *ngIf="isAdmin" pButton type="button" label="encuesta" class="p-button-outlined" [routerLink]="['/listaEncuesta']">
         <span class="pi pi-user"></span>
     </button>
 

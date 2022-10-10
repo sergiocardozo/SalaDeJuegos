@@ -9,7 +9,6 @@ import { ScoresService } from 'src/app/service/scores.service';
 })
 export class AhorcadoComponent implements OnInit {
 
-
   arrayWords: string[] = ["vamonos", "nave", "cielo", "habra", "orden", "segura", "querida", "niña", "increible", "ademas", "deben", "libro", "calle", "cafe", "piensas", "hacemos", "especial", "queremos", "clark", "irme", "perfecto", "buscar", "odio", "piensa", "oficina", "hablas", "libre", "agente", "york", "llamar"];
   words = '';
   palabraOculta = '';
@@ -103,14 +102,20 @@ export class AhorcadoComponent implements OnInit {
 
   }
 
+  sacarLetra() {
+
+  }
+
   existeLetra(letra: string) {
     if (this.words.indexOf(letra) >= 0) {
+
     } else {
       this.mistakesRemaining++;
+     
     }
   }
 
-  realizarEncuesta(){
-      this.route.navigate(['/games/encuestas']);
+  realizarEncuesta() {
+    this.route.navigate(['/games/encuestas']);
   }
 }

@@ -12,7 +12,7 @@ import { Snake } from './utils/snake';
 })
 export class SnakeComponent implements OnInit, AfterViewInit {
 
-  title = 'snakeGame1938web';
+  menu = true;
   gameBoard: any;
   snake = new Snake();
   food = new Food(this.snake);
@@ -29,17 +29,21 @@ export class SnakeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.menu = false;
     this.snake.listenToInputs();
   }
+
+  
   dpadMovement(direction: string) {
     this.snake.input.setDirection(direction);
   }
 
-
+  
   start(currentTime: any) {
-    if (this.gameOver) {
+    if (this.gameOver) {      
+      
       this.scoreService.addScore('Snake', this.food?.currentScore)
-
+      return;
     }
 
     window.requestAnimationFrame(this.start.bind(this));
@@ -52,7 +56,9 @@ export class SnakeComponent implements OnInit, AfterViewInit {
     this.update();
     this.draw();
   }
-
+  restart() {
+    window.location.reload();
+  }
   update() {
     this.snake.update();
     this.food.update();

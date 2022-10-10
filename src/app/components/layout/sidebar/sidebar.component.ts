@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/service/auth.service';
 export class SidebarComponent implements OnInit {
 
   item: MenuItem[];
-
+  isAdmin: boolean;
   isLogin: boolean;
   userEmail: string;
   display = true;
@@ -26,20 +26,24 @@ export class SidebarComponent implements OnInit {
       if (auth) {
         this.isLogin = true;
         this.userEmail = auth.email;
-        console.log(auth.email);
+        if(auth.email === 'scardozo.sc@gmail.com'){
+          this.isAdmin = true;
+        } else {
+          this.isAdmin = false;
+        }
       } else {
         this.isLogin = false;
       }
     })
 
-    this.item = [
+    /* this.item = [
       { label: 'Ahorcado', icon: 'pi pi-cog', routerLink: ['/games/ahorcado'] },
       { label: 'Menor O Mayor', icon: 'pi pi-cog', routerLink: ['/games/mayormenor'] },
       { label: 'Preguntados', icon: 'pi pi-cog', routerLink: ['/games/preguntados'] },
       { label: 'Snake', icon: 'pi pi-cog', routerLink: ['/games/snake'] }
 
 
-    ]
+    ] */
 
   }
 

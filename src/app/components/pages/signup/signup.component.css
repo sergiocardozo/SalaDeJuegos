@@ -1,3 +1,13 @@
+.contenedor {
+    background-image: url(../../../../assets/img/saladejuegos.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 0;
+    border-radius: 10px;
+}
+
 .wrapper {
     max-width: 550px;
     min-height: 480px;
