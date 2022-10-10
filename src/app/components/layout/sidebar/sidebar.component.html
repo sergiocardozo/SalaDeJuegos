@@ -3,7 +3,7 @@
 
     <p-divider type="dotted"></p-divider>
 
-    <button pButton type="button" label="Home" class="p-button-outlined" [routerLink]="['/home']">
+    <button *ngIf="isLogin" pButton type="button" label="Home" class="p-button-outlined" [routerLink]="['/home']">
         <span class="pi pi-home"></span>
     </button>
 
