@@ -3,11 +3,13 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from 'src/app/models/user.models';
 import { AuthService } from 'src/app/service/auth.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  providers: [MessageService]
 })
 export class SignupComponent implements OnInit {
 
@@ -21,7 +23,7 @@ export class SignupComponent implements OnInit {
   error: boolean = false;
   message: string = '';
 
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router, private messageService: MessageService) {
   }
 
   ngOnInit(): void {

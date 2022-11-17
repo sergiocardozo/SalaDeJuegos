@@ -23,6 +23,7 @@ export class EncuestaResultadoComponent implements OnInit {
         this.element.scrollTop = this.element.scrollHeight;
         
       }, 20);
+      console.log(data)
       this.resultados = data;
       
     })

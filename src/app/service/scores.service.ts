@@ -32,9 +32,9 @@ export class ScoresService {
 
   addScore(game: string, score: number) {
     let now = new Date();
-    let fecha = now.getDate() + "-" + now.getMonth() + "-" + now.getFullYear(); 
+    let fecha = now.getDate() + "-" + now.getMonth() + "-" + now.getFullYear() + " " + now.getHours(); 
     let resultado: Resultados = {
-      date: fecha,
+      date: Date(),
       email: this.user.email,
       game: game,
       score: score

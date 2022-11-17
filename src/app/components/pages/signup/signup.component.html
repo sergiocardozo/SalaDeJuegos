@@ -47,6 +47,7 @@
                     Sign up
                 </button>
                 <app-alert-error *ngIf="error === true" [message]="message"></app-alert-error>
+                <p-toast position="top-center"></p-toast>
             </form>
             <div class="text-center fs-6">
                 <span>Do You have Account?</span><a routerLink="/login"> Login</a>

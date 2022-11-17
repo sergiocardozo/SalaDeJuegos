@@ -15,7 +15,7 @@
                     obligatorio</span>
                 <div class="form-field d-flex align-items-center">
                     <span class="far fa-envelope"></span>
-                    <input type="email" name="email" id="email" placeholder="E-mail" [(ngModel)]="usuario.email" email
+                    <input type="email" name="email" id="email" placeholder="E-mail" [(ngModel)]="usuario" email
                         required>
                 </div>
                 <span class="text-danger" *ngIf="registro.submitted && registro.controls['password'].errors">Debe
@@ -25,7 +25,7 @@
                 <div class="form-field d-flex align-items-center">
                     <span class="fas fa-key"></span>
                     <input type="password" name="password" id="pwd" placeholder="Password"
-                        [(ngModel)]="usuario.password" minlength="6" required>
+                        [(ngModel)]="usuario" minlength="6" required>
                 </div>
                 <button class="btn mt-3">Login</button>
                 <button class="btn mt-3" (click)="testLogin(registro)">Login Test</button>
